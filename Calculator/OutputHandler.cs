@@ -8,9 +8,17 @@ namespace Calculator
 {
     public class OutputHandler
     {
-        public void PrintResult()
+        public void PrintString(double calculationResult)
         {
+            Console.WriteLine(calculationResult);
+        }
 
+        public void PrintList(List<string> listToPrint)
+        {
+            foreach (string element in listToPrint)
+            {
+                Console.WriteLine(element);
+            }
         }
     }
 }
