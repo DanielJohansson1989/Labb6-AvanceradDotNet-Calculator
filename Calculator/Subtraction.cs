@@ -10,7 +10,7 @@ namespace Calculator
     {
         public double CalculateValues(double value1, double value2)
         {
-            throw new NotImplementedException();
+            return value1 - value2;
         }
     }
 }
