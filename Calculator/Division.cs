@@ -10,7 +10,11 @@ namespace Calculator
     {
         public double CalculateValues(double value1, double value2)
         {
-            throw new NotImplementedException();
+            if (value2 == 0)
+            {
+                throw new ArgumentException("The denominator can not be 0", nameof(value2));
+            }
+            return value1 / value2;
         }
     }
 }
