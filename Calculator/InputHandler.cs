@@ -8,9 +8,17 @@ namespace Calculator
 {
     public class InputHandler
     {
-        public double ReceiveUserInput()
+        public double ReceiveUserInput(IUserInput userInput)
         {
-            return 0;
+            string inputAsString;
+            double inputAsDouble;
+
+            do
+            {
+                inputAsString = userInput.GetInput();
+            } while (!double.TryParse(inputAsString, out inputAsDouble));
+
+            return inputAsDouble;
         }
     }
 }
