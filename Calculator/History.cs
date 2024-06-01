@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    public class History
+    public class History : IHistory
     {
         private readonly List<string> _records = new List<string>();
 
