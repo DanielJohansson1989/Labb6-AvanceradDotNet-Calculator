@@ -64,7 +64,7 @@ namespace Calculator
                     _turnOffMenu = true; 
                     break;
                     default:
-                        _outputHandler.PrintOutput("An incorrect option was chosen.");
+                        _outputHandler.PrintOutput("Invalid input!");
                         break;
                 }
            } while (!_turnOffMenu);

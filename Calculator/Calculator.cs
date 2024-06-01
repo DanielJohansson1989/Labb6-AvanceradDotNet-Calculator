@@ -19,7 +19,7 @@ namespace Calculator
                 string stringInput1 = input.GetInput();
                 if (!double.TryParse(stringInput1, out augend))
                 {
-                    Console.WriteLine("Error, not a number!");
+                    Console.WriteLine("Invalid input!");
                     parseSuccess = false;
                 }
                 else
@@ -33,7 +33,7 @@ namespace Calculator
                 string stringInput2 = input.GetInput();
                 if (!double.TryParse(stringInput2, out addend))
                 {
-                    Console.WriteLine("Error, not a number!");
+                    Console.WriteLine("Invalid input!");
                     parseSuccess = false;
                 }
                 else
@@ -59,7 +59,7 @@ namespace Calculator
                 string stringInput1 = input.GetInput();
                 if (!double.TryParse(stringInput1, out dividend))
                 {
-                    Console.WriteLine("Error, not a number!");
+                    Console.WriteLine("Invalid input!");
                     parseSuccess = false;
                 }
                 else
@@ -74,7 +74,7 @@ namespace Calculator
                 
                 if (!double.TryParse(stringInput2, out divisor))
                 {
-                    Console.WriteLine("Error, not a number!");
+                    Console.WriteLine("Invalid input!");
                     parseSuccess = false;
                 }
                 else
@@ -108,7 +108,7 @@ namespace Calculator
                 string stringInput1 = input.GetInput();
                 if (!double.TryParse(stringInput1, out multiplicand))
                 {
-                    Console.WriteLine("Error, not a number!");
+                    Console.WriteLine("Invalid input!");
                     parseSuccess = false;
                 }
                 else
@@ -122,7 +122,7 @@ namespace Calculator
                 string stringInput2 = input.GetInput();
                 if (!double.TryParse(stringInput2, out multiplier))
                 {
-                    Console.WriteLine("Error, not a number!");
+                    Console.WriteLine("Invalid input!");
                     parseSuccess = false;
                 }
                 else
@@ -148,7 +148,7 @@ namespace Calculator
                 string stringInput1 = input.GetInput();
                 if (!double.TryParse(stringInput1, out minuend))
                 {
-                    Console.WriteLine("Error, not a number!");
+                    Console.WriteLine("Invalid input!");
                     parseSuccess = false;
                 }
                 else
@@ -162,7 +162,7 @@ namespace Calculator
                 string stringInput2 = input.GetInput();
                 if (!double.TryParse(stringInput2, out subtrahend))
                 {
-                    Console.WriteLine("Error, not a number!");
+                    Console.WriteLine("Invalid input!");
                     parseSuccess = false;
                 }
                 else
