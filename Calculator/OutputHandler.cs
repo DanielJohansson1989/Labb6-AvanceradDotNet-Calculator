@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    public class OutputHandler
+    public class OutputHandler : IOutputHandler
     {
-        public void PrintString(double calculationResult)
+        public void PrintOutput(string output)
         {
-            Console.WriteLine(calculationResult);
+            Console.WriteLine(output);
         }
 
-        public void PrintList(List<string> listToPrint)
+        public void PrintOutput(List<string> list)
         {
-            foreach (string element in listToPrint)
+            foreach (string element in list)
             {
                 Console.WriteLine(element);
             }
