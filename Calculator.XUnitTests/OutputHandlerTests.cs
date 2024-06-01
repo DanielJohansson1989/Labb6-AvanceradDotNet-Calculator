@@ -9,10 +9,10 @@ namespace Calculator.XUnitTests
     public class OutputHandlerTests
     {
         [Theory]
-        [InlineData(12, "12")]
-        [InlineData(0.1234, "0,1234")]
-        [InlineData(-30, "-30")]
-        public void PrintString_ArgumentDataType_Double_Return_String(double calculationResult, string expected)
+        [InlineData("12", "12")]
+        [InlineData("0,1234", "0,1234")]
+        [InlineData("-30", "-30")]
+        public void PrintString_ArgumentDataType_Double_Return_String(string calculationResult, string expected)
         {
             OutputHandler outputHandler = new OutputHandler();
             var originalOutput = Console.Out;
@@ -21,7 +21,7 @@ namespace Calculator.XUnitTests
             {
                 Console.SetOut(sw);
 
-                outputHandler.PrintString(calculationResult);
+                outputHandler.PrintOutput(calculationResult);
 
                 var actual = sw.ToString().Trim();
                 Assert.Equal(expected, actual);
@@ -44,7 +44,7 @@ namespace Calculator.XUnitTests
             {
                 Console.SetOut(sw);
 
-                outputHandler.PrintList(list);
+                outputHandler.PrintOutput(list);
 
                 var outputAsString = sw.ToString().Trim();
                 var actual = outputAsString.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
@@ -70,7 +70,7 @@ namespace Calculator.XUnitTests
             {
                 Console.SetOut(sw);
 
-                outputHandler.PrintList(list);
+                outputHandler.PrintOutput(list);
 
                 var outputAsString = sw.ToString().Trim();
                 var actual = outputAsString.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
