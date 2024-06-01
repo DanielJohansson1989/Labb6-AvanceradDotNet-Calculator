@@ -8,6 +8,9 @@ namespace Calculator
 {
     public interface ICalculator
     {
-        double CalculateValues(double value1, double value2);
+        string Addition(IUserInput input, IHistory history);
+        string Subtraction(IUserInput input, IHistory history);
+        string Multiplication(IUserInput input, IHistory history);
+        string Division(IUserInput input, IHistory history);
     }
 }
