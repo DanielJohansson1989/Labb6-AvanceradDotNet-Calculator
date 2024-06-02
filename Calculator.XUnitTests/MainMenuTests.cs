@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using Castle.Components.DictionaryAdapter.Xml;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,6 @@ namespace Calculator.XUnitTests
 {
     public class MainMenuTests
     {
-        //[Theory]
-        //[InlineData("1", "Addition() called")]
-        //[InlineData("2", "Subtraction() called")]
-        //[InlineData("3", "Multiplication() called")]
-        //[InlineData("4", "Division() called")]
-        //[InlineData("5", "History() called")]
-        //[InlineData("10", "An incorrect option was chosen.")]
-        //[InlineData("asd", "An incorrect option was chosen.")]
         [Fact]
         public void RunMainMenu_UserInputIs_1_AdditionIsCalled()
         {
@@ -25,12 +18,13 @@ namespace Calculator.XUnitTests
             Mock<IOutputHandler> outputHandler = new Mock<IOutputHandler>();
             Mock<IUserInput> input = new Mock<IUserInput>();
             Mock<IHistory> history = new Mock<IHistory>();
+            Mock<IConsole> console = new Mock<IConsole>();
 
-            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object);
+            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object, console.Object);
 
             calculator.Setup( c => c.Addition(It.IsAny<UserInput>(), history.Object)).Returns("Addition() called");
 
-            input.SetupSequence(i => i.GetInput()).Returns("1").Returns("6");
+            input.SetupSequence(i => i.GetInput()).Returns("1").Returns("6").Returns("6");
 
             //Act
             mainMenu.RunMainMenu();
@@ -47,13 +41,14 @@ namespace Calculator.XUnitTests
             Mock<IOutputHandler> outputHandler = new Mock<IOutputHandler>();
             Mock<IUserInput> input = new Mock<IUserInput>();
             Mock<IHistory> history = new Mock<IHistory>();
+            Mock<IConsole> console = new Mock<IConsole>();
 
-            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object);
+            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object, console.Object);
 
             calculator.Setup(c => c.Subtraction(input.Object, history.Object)).Returns("Subtraction() called");
             
 
-            input.SetupSequence(i => i.GetInput()).Returns("2").Returns("6");
+            input.SetupSequence(i => i.GetInput()).Returns("2").Returns("6").Returns("6");
 
             //Act
             mainMenu.RunMainMenu();
@@ -70,12 +65,13 @@ namespace Calculator.XUnitTests
             Mock<IOutputHandler> outputHandler = new Mock<IOutputHandler>();
             Mock<IUserInput> input = new Mock<IUserInput>();
             Mock<IHistory> history = new Mock<IHistory>();
+            Mock<IConsole> console = new Mock<IConsole>();
 
-            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object);
+            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object, console.Object);
 
             calculator.Setup(c => c.Multiplication(input.Object, history.Object)).Returns("Multiplication() called");
 
-            input.SetupSequence(i => i.GetInput()).Returns("3").Returns("6");
+            input.SetupSequence(i => i.GetInput()).Returns("3").Returns("6").Returns("6");
 
             //Act
             mainMenu.RunMainMenu();
@@ -92,12 +88,13 @@ namespace Calculator.XUnitTests
             Mock<IOutputHandler> outputHandler = new Mock<IOutputHandler>();
             Mock<IUserInput> input = new Mock<IUserInput>();
             Mock<IHistory> history = new Mock<IHistory>();
+            Mock<IConsole> console = new Mock<IConsole>();
 
-            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object);
+            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object, console.Object);
 
             calculator.Setup(c => c.Division(input.Object, history.Object)).Returns("Division() called");
 
-            input.SetupSequence(i => i.GetInput()).Returns("4").Returns("6");
+            input.SetupSequence(i => i.GetInput()).Returns("4").Returns("6").Returns("6");
 
             //Act
             mainMenu.RunMainMenu();
@@ -114,12 +111,13 @@ namespace Calculator.XUnitTests
             Mock<IOutputHandler> outputHandler = new Mock<IOutputHandler>();
             Mock<IUserInput> input = new Mock<IUserInput>();
             Mock<IHistory> history = new Mock<IHistory>();
+            Mock<IConsole> console = new Mock<IConsole>();
 
-            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object);
+            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object, console.Object);
 
             history.Setup(h => h.GetRecords()).Returns(new List<string> { "History() called" });
 
-            input.SetupSequence(i => i.GetInput()).Returns("5").Returns("6");
+            input.SetupSequence(i => i.GetInput()).Returns("5").Returns("6").Returns("6");
 
             //Act
             mainMenu.RunMainMenu();
@@ -136,12 +134,13 @@ namespace Calculator.XUnitTests
             Mock<IOutputHandler> outputHandler = new Mock<IOutputHandler>();
             Mock<IUserInput> input = new Mock<IUserInput>();
             Mock<IHistory> history = new Mock<IHistory>();
+            Mock<IConsole> console = new Mock<IConsole>();
 
-            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object);
+            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object, console.Object);
 
             outputHandler.Setup(oh => oh.PrintOutput(It.IsAny<string>()));
 
-            input.SetupSequence(i => i.GetInput()).Returns("77").Returns("6");
+            input.SetupSequence(i => i.GetInput()).Returns("77").Returns("6").Returns("6");
 
             //Act
             mainMenu.RunMainMenu();
@@ -158,12 +157,13 @@ namespace Calculator.XUnitTests
             Mock<IOutputHandler> outputHandler = new Mock<IOutputHandler>();
             Mock<IUserInput> input = new Mock<IUserInput>();
             Mock<IHistory> history = new Mock<IHistory>();
+            Mock<IConsole> console = new Mock<IConsole>();
 
-            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object);
+            MainMenu mainMenu = new MainMenu(calculator.Object, outputHandler.Object, input.Object, history.Object, console.Object);
 
             outputHandler.Setup(oh => oh.PrintOutput(It.IsAny<string>()));
 
-            input.SetupSequence(i => i.GetInput()).Returns("ASD").Returns("6");
+            input.SetupSequence(i => i.GetInput()).Returns("ASD").Returns("6").Returns("6");
 
             //Act
             mainMenu.RunMainMenu();
